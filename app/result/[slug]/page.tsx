@@ -63,7 +63,7 @@ export default function Page({ params }: { params: { slug: string } }) {
     if(error){
         return (
             <main className='flex min-h-screen flex-col items-center justify-center gap-2'>
-                <p>An error occured:</p>
+                <p>An error occurred:</p>
                 <p>{errorMessage}</p>
             </main>
         )
