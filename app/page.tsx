@@ -1,8 +1,8 @@
 "use client";
 import { CssVarsProvider } from '@mui/joy/styles';
-import { Input, Typography, Checkbox, Button, Autocomplete } from '@mui/joy';
+import { Input, Typography, Button, Autocomplete } from '@mui/joy';
 import { getInitColorSchemeScript } from '@mui/joy/styles';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Alert from '@mui/joy/Alert';
 
@@ -120,7 +120,7 @@ export default function Home() {
           </div>
         </footer>
 
-        {error == true && (
+        {error && (
           <Alert variant="outlined" color="danger">{errorMessage}</Alert>
           )}
 

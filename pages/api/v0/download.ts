@@ -5,7 +5,6 @@ import axios from 'axios';
 
 function fetch(data: string | undefined) {
 	const db = new Database('./db/aaaaaaaa.db', { readonly: true });
-	let results: any = []
 
 	const row: any = db.prepare('SELECT url FROM files WHERE id = ?').get(data);
 	if (!row)
@@ -18,7 +17,6 @@ function fetch(data: string | undefined) {
 
 function fetch2(data: string | undefined) {
 	const db = new Database('./db/aaaaaaaa.db', { readonly: true });
-	let results: any = []
 
 	const row: any = db.prepare('SELECT filename, length, filesize, encoder, uploaddate FROM files WHERE id = ?').get(data);
 	if (!row)
