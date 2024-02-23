@@ -25,7 +25,7 @@ export default function Page({ params }: { params: { slug: string } }) {
 
     useEffect(() => {
         console.log(id)
-        fetch("/api/v6/fetch",
+        fetch("/api/v0/fetch",
             {
                 headers: {
                     'Accept': 'application/json',
