@@ -110,6 +110,9 @@ export default function Home() {
         <Button variant="outlined" type="solid" onClick={fetchData} disabled={loading}>Submit</Button>
 
         <Typography level="title-sm">Join us on <a href='https://discord.gg/BbSGtQfvJu' className='text-purple-300'>discord</a>!</Typography>
+        {error && (
+            <Alert variant="outlined" color="danger">{errorMessage}</Alert>
+        )}
         <footer className="absolute bottom-0 left-0 w-screen h-16">
           <div className="container mx-auto text-center text-xs">
             <p>&copy; {new Date().getFullYear()} pico.rynav.xyz | contact@rynav.xyz</p>
@@ -119,11 +122,6 @@ export default function Home() {
             </div>
           </div>
         </footer>
-
-        {error && (
-          <Alert variant="outlined" color="danger">{errorMessage}</Alert>
-          )}
-
       </main>
     </CssVarsProvider>
   )

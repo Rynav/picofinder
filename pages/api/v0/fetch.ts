@@ -114,7 +114,15 @@ export default async function handler(
 	//console.log(req.body)
 	let request = req.body
 	console.log(" > Got request: ", request)
-	let decoded = JSON.parse(nextBase64.decode(request));
+	let decoded = ""
+	try {
+		decoded = JSON.parse(nextBase64.decode(request));
+	}
+	catch (e){
+		console.log(" > Malformed input found, returning...")
+		return res.status(200).json({error: true, message: "Got malformed input, please use the main page to input data"})
+	}
+
 	console.log(" > Decoded request: ", decoded);
 	console.log(" > Fetching for the request!")
 	let row = await fetch2(decoded);
