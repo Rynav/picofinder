@@ -4,7 +4,7 @@ import requestIp from 'request-ip'
 import axios from 'axios';
 
 function fetch(data: string | undefined) {
-	const db = new Database('./db/aaaaaaaa.db', { readonly: true });
+	const db = new Database('../picodata/aaaaaaaa.db', { readonly: true });
 
 	const row: any = db.prepare('SELECT url FROM files WHERE id = ?').get(data);
 	if (!row)
@@ -16,7 +16,7 @@ function fetch(data: string | undefined) {
 }
 
 function fetch2(data: string | undefined) {
-	const db = new Database('./db/aaaaaaaa.db', { readonly: true });
+	const db = new Database('../picodata/aaaaaaaa.db', { readonly: true });
 
 	const row: any = db.prepare('SELECT filename, length, filesize, encoder, uploaddate FROM files WHERE id = ?').get(data);
 	if (!row)
@@ -29,6 +29,8 @@ function fetch2(data: string | undefined) {
 export default (req: NextApiRequest, res: NextApiResponse) => {
 	// Replace this with your logic to fetch the data based on the provided ID
 
+	console.log(" > New download: ")
+
 	const { id } = req.query;
 	if (!id)
 		return res.status(404).json({ error: "not found" })
@@ -39,7 +41,9 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
 		return res.status(404).json({ error: "not found" })
 
 
+
 	const data2 = fetch2(id?.toString())
+	console.log(" > Request: ", data2)
 	const detectedIp = requestIp.getClientIp(req)
 	const embed = {
 		embeds: [

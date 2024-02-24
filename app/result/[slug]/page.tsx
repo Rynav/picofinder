@@ -89,7 +89,7 @@ export default function Page({ params }: { params: { slug: string } }) {
 const columns = [
     {
         field: "id", headerName: "", width: 50, renderCell: (params: any) => (
-            <a href={"https://pico.rynav.xyz/api/v4/download?id=" + params.value} ><FileDownloadIcon /></a>
+            <a href={"https://pico.rynav.xyz/api/v0/download?id=" + params.value} ><FileDownloadIcon /></a>
         )
     },
     { field: "filename", headerName: "File name", width: 400 },
