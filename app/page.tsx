@@ -50,9 +50,9 @@ export default function Home() {
 
           <Typography level="title-lg" >Duration</Typography>
           <div className='flex flex-row items-center gap-2'>
-            <Input variant="outlined" placeholder='From' value={lengthFrom} onChange={(e) => setLengthFrom(e.target.value)} name='dateFrom' className='w-full'/>
+            <Input variant="outlined" placeholder='From' value={lengthFrom} onChange={(e) => setLengthFrom(e.target.value.replace(/[^[0-9]:]/g, ""))} name='dateFrom' className='w-full' error={!lengthFrom.match(/^(\d|1\d|2[0-3]):[0-5]\d$/) && lengthFrom.length > 1} />
             -
-            <Input variant="outlined" placeholder='To' value={lengthTo} onChange={(e) => setLengthTo(e.target.value)} className='w-full' name='dateTo' />
+            <Input variant="outlined" placeholder='To' value={lengthTo} onChange={(e) => setLengthTo(e.target.value.replace(/[^[0-9]:]/g, ""))} className='w-full' name='dateTo' error={!lengthTo.match(/^(\d|1\d|2[0-3]):[0-5]\d$/) && lengthTo.length > 1} />
           </div>
           <div>
             <Typography level="title-lg" >Upload date</Typography>
@@ -107,7 +107,7 @@ export default function Home() {
           )}
           
         </form>
-        <Button variant="outlined" type="solid" onClick={fetchData} disabled={loading}>Submit</Button>
+        <Button variant="outlined" type="solid" onClick={fetchData} disabled={loading || (!lengthFrom.match(/^(\d|1\d|2[0-3]):[0-5]\d$/) && lengthFrom.length > 1 || !lengthTo.match(/^(\d|1\d|2[0-3]):[0-5]\d$/) && lengthTo.length > 1)}>Submit</Button>
 
         <Typography level="title-sm">Join us on <a href='https://discord.gg/BbSGtQfvJu' className='text-purple-300'>discord</a>!</Typography>
         {error && (
