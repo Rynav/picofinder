@@ -4,7 +4,7 @@ import * as fs from 'fs';
 
 
 function fetch(data: string) {
-    const db = new Database('../picodata/1231231.db');
+    const db = new Database('C:\\Users\\Rynav\\Desktop\\picofinder1\\picodata\\1231231.db');
     db.pragma('journal_mode = WAL');
 
 
