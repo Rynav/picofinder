@@ -37,7 +37,7 @@ const Dropdown = (props: Props) => {
 					variant="outline"
 					role="combobox"
 					aria-expanded={props.open}
-					className="w-full justify-between"
+					className="w-full justify-between focus:outline-none focus:border-blue-500 hover:border-blue-500"
 				>
 					{props.value
 						? props.values.find((framework) => framework.value.toLowerCase() === props.value)?.label
@@ -47,7 +47,7 @@ const Dropdown = (props: Props) => {
 			</PopoverTrigger>
 			<PopoverContent className="w-full p-0">
 				<Command>
-					<CommandInput placeholder="Search framework..." className="h-9" />
+					<CommandInput placeholder="Search..." className="h-9" />
 					<CommandEmpty>No framework found.</CommandEmpty>
 					<CommandGroup>
 						{props.values.map((framework) => (

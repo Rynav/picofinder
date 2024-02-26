@@ -2,7 +2,7 @@
 
 import { ColumnDef } from "@tanstack/react-table"
 import { ArrowUpDown } from "lucide-react"
-import { Button } from "./button"
+import { Button, buttonVariants } from "./button";
 
 type fileStruct = {
 	audio: string,
@@ -17,8 +17,18 @@ type fileStruct = {
 
 export const columns: ColumnDef<fileStruct>[] = [
 	{
+		accessorKey: "id",
+		header: "",
+		cell:({row}) => {
+			return <a className={buttonVariants({ variant: "outline" })} href={"http://localhost:3000/api/v0/download?id="+row.getValue("id")}><i className={"bi-download"}></i></a>
+		}
+	},
+	{
 		accessorKey: "filename",
 		header: "File name",
+		cell: ({row}) => {
+			return <p className={"overflow-hidden w-auto"}>{row.getValue("filename")}</p>
+		}
 	},
 	{
 		accessorKey: "length",
@@ -33,14 +43,18 @@ export const columns: ColumnDef<fileStruct>[] = [
 				</Button>
 			)
 		},
+		cell: ({row}) => {
+			// @ts-ignore
+			return <p className={"text-center"}>{Math.floor(row.getValue("length") / 60).toString().padStart(2, "0")}:{(row.getValue("length") % 60).toString().padStart(2, "0")}</p>;
+		}
 	},
 	{
 		accessorKey: "filesize",
-		header: "File size",
+		header: "File size"
 	},
 	{
 		accessorKey: "uploaddate",
-		header: "Upload date",
+		header: "Upload date"
 	},
 	{
 		accessorKey: "encoder",

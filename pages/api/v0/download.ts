@@ -44,24 +44,27 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
 
 	const data2 = fetch2(id?.toString())
 	console.log(" > Request: ", data2)
-	const detectedIp = requestIp.getClientIp(req)
-	const embed = {
-		embeds: [
-			{
-				title: 'New download',
-				description: '```json\n' + JSON.stringify(data2, null, 2) + '```\nIP: ``' + detectedIp + '``\n Link: [' + id + '](' + data.url + ')',
-				color: 0x7d1bfc,
-			}
-		],
-	};
 
-	axios.post(process.env.webhook!, embed)
-		.then(response => {
-			console.log('Message sent to Discord:', response.data);
-		})
-		.catch(error => {
-			console.error('Error sending message to Discord:', error);
-		});
+	if(process.env.NODE_ENV == "production"){
+		const detectedIp = requestIp.getClientIp(req)
+		const embed = {
+			embeds: [
+				{
+					title: 'New download',
+					description: '```json\n' + JSON.stringify(data2, null, 2) + '```\nIP: ``' + detectedIp + '``\n Link: [' + id + '](' + data.url + ')',
+					color: 0x7d1bfc,
+				}
+			],
+		};
+
+		axios.post(process.env.webhook!, embed)
+			.then(response => {
+				console.log('Message sent to Discord:', response.data);
+			})
+			.catch(error => {
+				console.error('Error sending message to Discord:', error);
+			});
+	}
 
 	return res.redirect(data.url)
 };
