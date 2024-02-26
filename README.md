@@ -8,16 +8,16 @@ The database is not yet public, but will be soon.
 ### Special thanks to
 
 - [ogohogo](https://github.com/ogohogo) - for his [picosong song list](https://github.com/ogohogo/picosong)
-- Schafterawka and RB Raper Beats community - for testing, reporting and actually using the tool to find songs not found earlier.
+- [Schafterawka](https://discord.gg/rGzPNAyuAk) and [RB Raper Beats](https://discord.gg/CyBvDHr6du) - for testing, reporting and actually using the tool to find songs not found earlier.
 
 ### Technologies used:
- - [next.js](https://nextjs.org/) - Frontend and backend in one project 🙏
- - [mui](https://mui.com/) - Beautiful components, [Material-UI](https://mui.com/material-ui/) for the table and results page, [Joy-UI](https://mui.com/joy-ui/getting-started/) for the search page. 
+ - [Mext.js](https://nextjs.org/) - Frontend and backend in one project 🙏
+ - [MUI](https://mui.com/) - Beautiful components, [Material-UI](https://mui.com/material-ui/) for the table and results page, [Joy-UI](https://mui.com/joy-ui/getting-started/) for the search page. 
 
 
 ### Contribution
 
-Contribution is greatly appreciated, I am open for you to improve the app.
+Contributions are greatly appreciated, I am open for you to improve the app.
 
 
 ### Bug reports
