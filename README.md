@@ -11,7 +11,7 @@ The database is not yet public, but will be soon.
 - [Schafterawka](https://discord.gg/rGzPNAyuAk) and [RB Raper Beats](https://discord.gg/CyBvDHr6du) - for testing, reporting and actually using the tool to find songs not found earlier.
 
 ### Technologies used:
- - [Mext.js](https://nextjs.org/) - Frontend and backend in one project 🙏
+ - [Next.js](https://nextjs.org/) - Frontend and backend in one project 🙏
  - [MUI](https://mui.com/) - Beautiful components, [Material-UI](https://mui.com/material-ui/) for the table and results page, [Joy-UI](https://mui.com/joy-ui/getting-started/) for the search page. 
 
 
