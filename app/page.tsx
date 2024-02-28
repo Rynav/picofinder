@@ -24,7 +24,7 @@ export default function Home() {
 
   function fetchData() {
 
-    let query = Buffer.from(JSON.stringify({ encoder: (customEncoder ? customEncoder : encoder), title: title, lengthFrom: lengthFrom, lengthTo: lengthTo, uploadYear: year, uploadMonth: month }), "utf-8").toString("base64")
+    let query = encodeURIComponent(Buffer.from(JSON.stringify({ encoder: (customEncoder ? customEncoder : encoder), title: title, lengthFrom: lengthFrom, lengthTo: lengthTo, uploadYear: year, uploadMonth: month }), "utf-8").toString("base64"))
 
     console.log(query);
     if(encoder.toString().length <= 1 && year.length <= 2 && month.length <= 2 && title.length <= 3){
