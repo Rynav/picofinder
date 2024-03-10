@@ -18,7 +18,7 @@ function mmssToSeconds(duration: any) {
 async function fetch2(data: any) {
 	try {
 
-		if(data.encoder.toString().length <= 1 && data.uploadYear.length <= 2 && data.uploadMonth.length <= 2 && data.title.length <= 3){
+		if(data.encoder.toString().length <= 1 && data.uploadYear.length <= 2 && data.uploadMonth.length <= 2 && data.title.length <= 1){
 			return { error: true, message: "Title is too short, please select an encoder or make the title more than 3 chars long!" };
 		}
 
