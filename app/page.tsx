@@ -27,7 +27,7 @@ export default function Home() {
     let query = encodeURIComponent(Buffer.from(JSON.stringify({ encoder: (customEncoder ? customEncoder : encoder), title: title, lengthFrom: lengthFrom, lengthTo: lengthTo, uploadYear: year, uploadMonth: month }), "utf-8").toString("base64"))
 
     console.log(query);
-    if(encoder.toString().length <= 1 && year.length <= 2 && month.length <= 2 && title.length <= 3){
+    if(encoder.toString().length <= 1 && year.length <= 2 && month.length <= 2 && title.length <= 1){
       setError(true)
       setErrorMessage("Title is too short, please select an encoder or make the title more than 3 chars long!")
       return;
