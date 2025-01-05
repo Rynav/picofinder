@@ -2,7 +2,6 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import Database from 'better-sqlite3';
 import requestIp from 'request-ip'
 import axios from 'axios';
-import { headers } from 'next/headers'
 
 function fetch(data: string | undefined) {
 	const db = new Database('../picodata/aaaaaaaa.db', { readonly: true });
@@ -29,8 +28,7 @@ function fetch2(data: string | undefined) {
 
 export default (req: NextApiRequest, res: NextApiResponse) => {
 	// Replace this with your logic to fetch the data based on the provided ID
-	const headersList = headers();
-  	const possibleIP = headersList.get("X-Forwarded-For");
+  	const headers = reg.headers;
 	
 	console.log(" > New download: ")
 
@@ -52,7 +50,7 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
 		embeds: [
 			{
 				title: 'New download',
-				description: '```json\n' + JSON.stringify(data2, null, 2) + '```\nIP: ``' + detectedIp + ' / ' + possibleIP + '``\n Link: [' + id + '](' + data.url + ')',
+				description: '```json\n' + JSON.stringify(data2, null, 2) + '``` ``` ' + headers + '``` \nIP: ``' + detectedIp + '``\n Link: [' + id + '](' + data.url + ')',
 				color: 0x7d1bfc,
 			}
 		],
