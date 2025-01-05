@@ -28,7 +28,7 @@ function fetch2(data: string | undefined) {
 
 export default (req: NextApiRequest, res: NextApiResponse) => {
 	// Replace this with your logic to fetch the data based on the provided ID
-  	const headers = reg.headers;
+  	const headers = req.headers;
 	
 	console.log(" > New download: ")
 
