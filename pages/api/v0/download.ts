@@ -52,7 +52,7 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
 		embeds: [
 			{
 				title: 'New download',
-				description: '```json\n' + JSON.stringify(data2, null, 2) + '```\nIP: ``' + detectedIp / possibleIP+ '``\n Link: [' + id + '](' + data.url + ')',
+				description: '```json\n' + JSON.stringify(data2, null, 2) + '```\nIP: ``' + detectedIp + ' / ' + possibleIP + '``\n Link: [' + id + '](' + data.url + ')',
 				color: 0x7d1bfc,
 			}
 		],
