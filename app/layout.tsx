@@ -18,6 +18,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning={true}>
       <head>
           <title>Picofinder</title>
+          <script defer data-domain="pico.rynav.xyz" src="https://plausible-cwkgk8kgo8cog4cc0o8c80oo.2137420.xyz/js/script.js"></script>
         </head>
       <body className={inter.className}>{children}</body>
     </html>
